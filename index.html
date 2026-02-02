@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convites Personalizados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-envelope-open-text"></i>Convites Personalizados</h1>
+            <p class="slogan">Crie convites únicos para seus momentos especiais</p>
+        </div>
+    </header>
+    
+    <!-- Navegação -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#criar"><i class="fas fa-plus-circle"></i> Criar Convite</a></li>
+                <li><a href="#modelos"><i class="fas fa-images"></i> Modelos</a></li>
+                <li><a href="#servicos"><i class="fas fa-concierge-bell"></i> Serviços</a></li>
+                <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Seção de criação de convite -->
+        <section id="criar">
+            <h2><i class="fas fa-edit"></i> Crie Seu Convite Personalizado</h2>
+            
+            <form action="processar-convite.php" method="POST">
+                <!-- Informações do Evento -->
+                <h3><i class="fas fa-calendar-alt"></i> Informações do Evento</h3>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="eventoNome" class="required">Nome do Evento</label>
+                            <input type="text" id="eventoNome" name="eventoNome" required placeholder="Ex: Casamento de Ana e João">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="tipoEvento" class="required">Tipo de Evento</label>
+                            <select id="tipoEvento" name="tipoEvento" required>
+                                <option value="">Selecione...</option>
+                                <option value="casamento">Casamento</option>
+                                <option value="aniversario">Aniversário</option>
+                                <option value="formatura">Formatura</option>
+                                <option value="corporativo">Evento Corporativo</option>
+                                <option value="chadebebe">Chá de Bebê</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="dataEvento" class="required">Data do Evento</label>
+                            <input type="date" id="dataEvento" name="dataEvento" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="horaEvento" class="required">Horário</label>
+                            <input type="time" id="horaEvento" name="horaEvento" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="localEvento" class="required">Local do Evento</label>
+                            <input type="text" id="localEvento" name="localEvento" required placeholder="Nome do local">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="enderecoEvento" class="required">Endereço Completo</label>
+                            <input type="text" id="enderecoEvento" name="enderecoEvento" required placeholder="Rua, número, bairro, cidade">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Informações do Anfitrião -->
+                <h3><i class="fas fa-user-tie"></i> Informações do Anfitrião</h3>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="nomeAnfitriao" class="required">Seu Nome</label>
+                            <input type="text" id="nomeAnfitriao" name="nomeAnfitriao" required placeholder="Nome completo">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="emailAnfitriao" class="required">Seu E-mail</label>
+                            <input type="email" id="emailAnfitriao" name="emailAnfitriao" required placeholder="seuemail@exemplo.com">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="telefoneAnfitriao" class="required">Telefone para Contato</label>
+                            <input type="tel" id="telefoneAnfitriao" name="telefoneAnfitriao" required placeholder="(11) 99999-9999">
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="quantidadeConvidados">Quantidade Aproximada de Convidados</label>
+                            <select id="quantidadeConvidados" name="quantidadeConvidados">
+                                <option value="0-50">Até 50 pessoas</option>
+                                <option value="51-100">51 a 100 pessoas</option>
+                                <option value="101-200">101 a 200 pessoas</option>
+                                <option value="201+">Mais de 200 pessoas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Personalização do Design -->
+                <h3><i class="fas fa-palette"></i> Personalização do Design</h3>
+                
+                <div class="form-group">
+                    <label>Escolha um Template</label>
+                    <div class="template-grid">
+                        <label>
+                            <input type="radio" name="template" value="elegante" checked style="display: none;">
+                            <div class="template-card">
+                                <div class="template-icon"><i class="fas fa-gem"></i></div>
+                                <h4>Elegante</h4>
+                                <p>Design sofisticado para eventos formais</p>
+                            </div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="template" value="moderno" style="display: none;">
+                            <div class="template-card">
+                                <div class="template-icon"><i class="fas fa-desktop"></i></div>
+                                <h4>Moderno</h4>
+                                <p>Linhas limpas e design contemporâneo</p>
+                            </div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="template" value="classico" style="display: none;">
+                            <div class="template-card">
+                                <div class="template-icon"><i class="fas fa-feather-alt"></i></div>
+                                <h4>Clássico</h4>
+                                <p>Estilo tradicional e atemporal</p>
+                            </div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="template" value="divertido" style="display: none;">
+                            <div class="template-card">
+                                <div class="template-icon"><i class="fas fa-laugh-beam"></i></div>
+                                <h4>Divertido</h4>
+                                <p>Para festas descontraídas e animadas</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Escolha a Cor Principal</label>
+                    <div class="color-grid">
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#8a2be2" checked style="display: none;">
+                            <div class="color-option" style="background-color: #8a2be2;"></div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#4b0082" style="display: none;">
+                            <div class="color-option" style="background-color: #4b0082;"></div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#6a5acd" style="display: none;">
+                            <div class="color-option" style="display: none; background-color: #6a5acd;"></div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#9932cc" style="display: none;">
+                            <div class="color-option" style="background-color: #9932cc;"></div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#da70d6" style="display: none;">
+                            <div class="color-option" style="background-color: #da70d6;"></div>
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="corPrincipal" value="#ff69b4" style="display: none;">
+                            <div class="color-option" style="background-color: #ff69b4;"></div>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Mensagem Personalizada -->
+                <div class="form-group">
+                    <label for="mensagemPersonalizada">Mensagem Personalizada para os Convidados</label>
+                    <textarea id="mensagemPersonalizada" name="mensagemPersonalizada" rows="5" placeholder="Escreva uma mensagem especial para seus convidados..."></textarea>
+                </div>
+                
+                <!-- Instruções Especiais -->
+                <div class="form-group">
+                    <label for="instrucoes">Instruções Especiais (Opcional)</label>
+                    <textarea id="instrucoes" name="instrucoes" rows="3" placeholder="Ex: Traje formal, favor confirmar presença, trazer um prato para compartilhar..."></textarea>
+                </div>
+                
+                <!-- Botão de envio -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-large btn-center">
+                        <i class="fas fa-magic"></i> Criar Meu Convite Personalizado
+                    </button>
+                </div>
+            </form>
+        </section>
+        
+        <!-- Seção de Modelos -->
+        <section id="modelos">
+            <h2><i class="fas fa-images"></i> Modelos de Convites</h2>
+            <p>Confira alguns exemplos dos nossos templates mais populares:</p>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header casamento">
+                        <i class="fas fa-heart fa-2x"></i>
+                        <h3>Casamento</h3>
+                    </div>
+                    <div class="example-body">
+                        <h4 class="example-title">Elegante e Romântico</h4>
+                        <p>Design sofisticado com detalhes florais e cores suaves.</p>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header aniversario">
+                        <i class="fas fa-birthday-cake fa-2x"></i>
+                        <h3>Aniversário</h3>
+                    </div>
+                    <div class="example-body">
+                        <h4 class="example-title">Divertido e Colorido</h4>
+                        <p>Cores vibrantes e elementos festivos para celebrar.</p>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header formatura">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                        <h3>Formatura</h3>
+                    </div>
+                    <div class="example-body">
+                        <h4 class="example-title">Clássico e Formal</h4>
+                        <p>Design tradicional com elementos acadêmicos.</p>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header corporativo">
+                        <i class="fas fa-briefcase fa-2x"></i>
+                        <h3>Corporativo</h3>
+                    </div>
+                    <div class="example-body">
+                        <h4 class="example-title">Profissional e Moderno</h4>
+                        <p>Linhas limpas e design corporativo elegante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção de Serviços -->
+        <section id="servicos">
+            <h2><i class="fas fa-concierge-bell"></i> Nossos Serviços</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Design Personalizado</h3>
+                    <p>Criamos convites únicos que refletem sua personalidade e o estilo do seu evento.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Impressão de Qualidade</h3>
+                    <p>Impressão em papel premium com acabamentos especiais para um resultado perfeito.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Envio Personalizado</h3>
+                    <p>Envelopes personalizados e sistema de envio para todos os seus convidados.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Convites Digitais</h3>
+                    <p>Versões digitais para compartilhamento por e-mail, WhatsApp e redes sociais.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Convites Personalizados</h3>
+                    <p>Criamos momentos memoráveis através de convites exclusivos e personalizados para cada tipo de celebração.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Mariano Procópio, 37, Santo Cristo, Rio de Janeiro</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@convitespersonalizados.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#criar">Criar Convite</a></li>
+                        <li><a href="#modelos">Modelos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Convites Personalizados. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
